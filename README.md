@@ -5,7 +5,7 @@ This demo will show how to build a Dataproc cluster with a custom VPC
 
 Go to your cloud-shell in your Gcloud console and create your dataproc cluster
 
-# Create the VPC network
+## Create the VPC network
 
 ```sh
 gcloud compute networks create demo-vpc \
@@ -13,7 +13,7 @@ gcloud compute networks create demo-vpc \
     --bgp-routing-mode=regional 
 ```
 
-# Create the subnet
+## Create the subnet
 
 
 ```sh
@@ -23,7 +23,7 @@ gcloud compute networks subnets create demo-vpcsub \
     --region=us-central1
 
 ```
-# Create the cluster and attach the network created above.
+## Create the cluster and attach the network created above.
 
 ```sh
 
@@ -36,11 +36,12 @@ gcloud dataproc clusters create exercise-cluster \
 ```
 
 
-# Exercise 1
+## Exercise 1
 
-Please can you check why the cluster is not working?
+Please can you check why the cluster is not working? 
+Hint: Please navigate to the cloud console logging page to view cluster logs
 
-# Solution
+## Solution
 
 Add the firewall rule to allow port 0-65535 to allow traffic between the VMs.
 
@@ -55,7 +56,7 @@ gcloud compute firewall-rules create "ssh-rule" --allow=tcp:22 --target-tags=dat
 
 ```
 
-# Clean up
+## Clean up
 
 ```sh
 
